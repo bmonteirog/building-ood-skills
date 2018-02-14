@@ -1,0 +1,1 @@
+# Exercises from the book "Building Skills in Object-Oriented Design"

@@ -1,0 +1,14 @@
+{
+    "name": "bruno/building-ood-skills",
+    "description": "Exercises from Building Skills in Object Oriented Design book",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Bruno Gomes",
+            "email": "bmonteirog@gmail.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^6.5"
+    }
+}

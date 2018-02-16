@@ -9,7 +9,8 @@
         }
     ],
     "require": {
-        "phpunit/phpunit": "^6.5"
+        "phpunit/phpunit": "^6.5",
+        "equip/structure": "^1.1"
     },
     "autoload": {
       "psr-4": {

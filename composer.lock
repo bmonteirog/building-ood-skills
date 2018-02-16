@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a992e4888d0fdcb6544e9bf352fb977c",
+    "content-hash": "3a600fb47eb849ffebc2e25dbb30ef9d",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -59,6 +59,60 @@
                 "instantiate"
             ],
             "time": "2015-06-14T21:17:01+00:00"
+        },
+        {
+            "name": "equip/structure",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/equip/structure.git",
+                "reference": "d0f4ac416d496670f043af0edfaae9548d92f13c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/equip/structure/zipball/d0f4ac416d496670f043af0edfaae9548d92f13c",
+                "reference": "d0f4ac416d496670f043af0edfaae9548d92f13c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "replace": {
+                "destruktphp/destrukt": "self.version",
+                "shadowhand/destrukt": "self.version"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8|^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Equip\\Structure\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Equip Contributors",
+                    "homepage": "https://github.com/equip"
+                }
+            ],
+            "description": "Simple, immutable data structures",
+            "keywords": [
+                "data structure",
+                "dictionary",
+                "hash map",
+                "hash table",
+                "immutable",
+                "list",
+                "ordered list",
+                "set",
+                "unordered list"
+            ],
+            "time": "2016-02-12T22:20:12+00:00"
         },
         {
             "name": "myclabs/deep-copy",

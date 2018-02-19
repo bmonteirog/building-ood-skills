@@ -17,6 +17,9 @@ class Wheel
    */
   protected $bins;
   
+  /**
+   * Wheel Constructor
+   */
   public function __construct()
   {
     for ($i=0; $i < 38; $i++) {       
@@ -26,6 +29,8 @@ class Wheel
 
   /**
    * Adds a given Outcome to the designated Bin
+   *
+   * @return bool
    */
   public function addOutcome(int $number, Outcome $outcome)
   {
@@ -39,17 +44,17 @@ class Wheel
   
   /**
    * Generates a random number between 0 and 37 and return the correct Bin
-   * @param mixed $seed 
    *
    * @return Bin
    */
-  public function next($seed = false)
+  public function next()
   {
-    return $this->get($this->generateRandomNumber($seed));
+    return $this->get($this->generateRandomNumber());
   }
   
   /**
    * Returns the given Bin from the internal Collection
+   *
    * @return Bin
    */
   private function get(int $bin)
@@ -59,15 +64,11 @@ class Wheel
   
   /**
    * Generates a random number between 0 and 37 and return the correct Bin
-   * @param mixed $seed
    *
    * @return int
    */
-  private function generateRandomNumber($seed = false)
+  private function generateRandomNumber()
   {
-    if ($seed !== false) {
-      return $seed;
-    }
     return rand(0, 37);
   }
 }

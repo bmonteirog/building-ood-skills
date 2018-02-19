@@ -5,6 +5,8 @@ namespace Roulette;
 
 use Equip\Structure\Set as ImmutableSet;
 
+use Roulette\Outcome;
+
 /**
  * Bin contains a collection of Outcomes which reflect the winning bets that are
  * paid for a particular bin on a Roulette wheel. In Roulette, each spin of the 
@@ -16,5 +18,23 @@ use Equip\Structure\Set as ImmutableSet;
  */
 class Bin extends ImmutableSet
 {
+  
+  /**
+   * Check if the Bin has a given outcome
+   *
+   * @param Outcome
+   *
+   * @return bool
+   */
+  public function hasOutcome(Outcome $otherOutcome)
+  {
+    foreach ($this as $key => $outcome) {
+      if ($outcome->equals($otherOutcome)) {
+        return true;
+      }
+    }
+    
+    return false;
+  }
 
 }

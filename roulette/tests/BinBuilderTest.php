@@ -35,7 +35,7 @@ final class BinBuilderTest extends TestCase
       'dozen' => null,
       'column' => null,
       'evenMoney' => null,
-      'fiveBet' => new Outcome("Five Bet", 6)
+      'fiveBet' => new Outcome("Five bet", 6)
     ];
 
     $this->outcomes[12] = [

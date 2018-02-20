@@ -167,7 +167,8 @@ class BinBuilder
   private function generateDozenBets()
   {
     for ($dozen = 0; $dozen < 3; $dozen++) {
-      $dozenOutcome = new Outcome("Dozen {$dozen + 1}", 2);
+      $dozenNumber = $dozen + 1;
+      $dozenOutcome = new Outcome("Dozen {$dozenNumber}", 2);
       for ($numberCounter = 0; $numberCounter < 12; $numberCounter++) {
         $number = (12 * $dozen) + $numberCounter + 1;
         $this->wheel->addOutcome($number, $dozenOutcome);
@@ -181,7 +182,8 @@ class BinBuilder
   private function generateColumnBets()
   {
     for ($column = 0; $column < 3; $column++) {
-      $columnOutcome = new Outcome("Column {$column + 1}", 2);
+      $columnNumber = $column + 1;
+      $columnOutcome = new Outcome("Column {$columnNumber}", 2);
       for ($row = 0; $row < 12; $row++) {
         $number = (3 * $row) + $column + 1;
         $this->wheel->addOutcome($number, $columnOutcome);

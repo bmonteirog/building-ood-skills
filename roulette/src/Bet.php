@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace Roulette;
 
-use Roulette\Outcome;
-
 /**
  * Associates an amount, an Outcome and a Player
  */

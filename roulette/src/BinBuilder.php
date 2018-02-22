@@ -3,9 +3,6 @@ declare(strict_types=1);
 
 namespace Roulette;
 
-use Roulette\Wheel;
-use Roulette\Outcome;
-
 /**
  * Builds bins results and associates with Outcomes
  */

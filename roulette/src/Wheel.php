@@ -3,9 +3,6 @@ declare(strict_types=1);
 
 namespace Roulette;
 
-use Roulette\Outcome;
-use Roulette\Bin;
-
 /**
  * Container for the Bins and picks one Bin at random
  */

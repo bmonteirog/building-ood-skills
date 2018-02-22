@@ -5,8 +5,6 @@ namespace Roulette;
 
 use Equip\Structure\Set as ImmutableSet;
 
-use Roulette\Outcome;
-
 /**
  * Bin contains a collection of Outcomes which reflect the winning bets that are
  * paid for a particular bin on a Roulette wheel. In Roulette, each spin of the 

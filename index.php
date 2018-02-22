@@ -2,10 +2,8 @@
 
 require __DIR__.'/vendor/autoload.php';
 
-use Roulette\Outcome;
-use Roulette\Bin;
+use Roulette\Passenger57;
+use Roulette\Table;
+use Roulette\Wheel;
 
-srand(7);
-for ($i=0; $i < 10; $i++) {
-  echo rand(0,38) . ', ';
-}
+$player = new Passenger57(new Table, new Wheel);

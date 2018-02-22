@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Roulette;
 
+use Exception;
+
 /**
  * Container for the Bins and picks one Bin at random
  */
@@ -49,7 +51,7 @@ class Wheel
       $this->bins[$number] = $this->bins[$number]->withValue($outcome);      
       $this->allOutcomes[$this->mappingPrefix . $outcome->getName()] = $outcome;      
       return true;
-    } catch (\Exception $e) {
+    } catch (Exception $e) {
       return false;
     }
   }

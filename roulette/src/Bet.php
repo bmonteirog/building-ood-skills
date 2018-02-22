@@ -71,4 +71,13 @@ class Bet
      return "Bet({$this->amount}, {$this->outcome->getName()})";
    }
    
+   /**
+    * Bet Outcome Getter
+    *
+    * @return Outcome
+    */
+   public function getOutcome()
+   {
+     return $this->outcome;
+   }
 }

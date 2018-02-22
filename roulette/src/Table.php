@@ -47,6 +47,16 @@ class Table
   }
   
   /**
+  * Return Bets array
+  *
+  * @return Bet[]
+  */
+  public function getBets()
+  {
+    return $this->bets;
+  }
+  
+  /**
    * Check if all bets pass the table limit rules
    *
    * @throws InvalidBetException   

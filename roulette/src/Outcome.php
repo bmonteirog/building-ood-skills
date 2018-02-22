@@ -22,8 +22,8 @@ class Outcome
   /**
    * Constructor
    *
-   * @param string $name
-   * @param int $odds
+   * @param string
+   * @param int
    */
   public function __construct(string $name, int $odds)
   {

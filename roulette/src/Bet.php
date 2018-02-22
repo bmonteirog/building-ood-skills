@@ -21,6 +21,9 @@ class Bet
    
    /**
     * Create a new Bet of a specific amount on a specific outcome.
+    *
+    * @param int
+    * @param Outcome
     */
    public function __construct(int $amount, Outcome $outcome)
    {

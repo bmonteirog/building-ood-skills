@@ -18,6 +18,20 @@ class Wheel
   protected $bins;
   
   /**
+   * @var Outcome[]
+   */
+  protected $allOutcomes;
+  
+  /**
+   * Using 'map_' prefix since an array using a valid integer as key will
+   * cast the index to integer instead of using it as a string, making
+   * the key search fail.
+   *
+   * @var string
+   */
+  protected $mappingPrefix = 'map_';  
+  
+  /**
    * Wheel Constructor
    */
   public function __construct()
@@ -35,7 +49,8 @@ class Wheel
   public function addOutcome(int $number, Outcome $outcome)
   {
     try {
-      $this->bins[$number] = $this->bins[$number]->withValue($outcome);
+      $this->bins[$number] = $this->bins[$number]->withValue($outcome);      
+      $this->allOutcomes[$this->mappingPrefix . $outcome->getName()] = $outcome;      
       return true;
     } catch (\Exception $e) {
       return false;
@@ -50,6 +65,22 @@ class Wheel
   public function next()
   {
     return $this->get($this->generateRandomNumber());
+  }
+  
+  /**
+   * Returns an outcome by its name
+   *
+   * @return mixed
+   */
+  public function getOutcome(string $name)
+  {
+      foreach ($this->allOutcomes as $outcomeName => $outcome) {
+        if ($outcomeName == $this->mappingPrefix . $name) {
+          return $outcome;
+        }
+      }
+      
+      return null;
   }
   
   /**

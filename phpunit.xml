@@ -1,4 +1,4 @@
-<phpunit bootstrap="vendor/autoload.php">
+<phpunit bootstrap="vendor/autoload.php" printerClass="Codedungeon\PHPUnitPrettyResultPrinter\Printer">
   <testsuites>
     <testsuite name="roulette">
       <directory>roulette/tests</directory>

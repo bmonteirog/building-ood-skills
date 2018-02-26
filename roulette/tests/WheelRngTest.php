@@ -1,9 +1,11 @@
 <?php
 declare(strict_types=1);
 
-use PHPUnit\Framework\TestCase;
+namespace Roulette\Tests;
+
 use Roulette\Wheel;
 use Roulette\Outcome;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests the Wheel class by selecting “random” values from a Wheel object using 
@@ -25,16 +27,17 @@ final class WheelRngTest extends TestCase
     $wheel->addOutcome(37, $five);
     $wheel->addOutcome(37, $zerozero);
     
-    // Will output the sequence 18, 32, 22, 8, 0, 19, 37
-    srand(7);
+    $rngStub = $this->createMock(\Clickalicious\Rng\Generator::class);
+    $rngStub->method('generate')->will($this->onConsecutiveCalls(18, 32, 22, 8, 0, 19, 37));    
+    $wheel->rng = $rngStub;
     
-    $selectedBin1 = $wheel->next(); // 18
-    $selectedBin2 = $wheel->next(); // 32
-    $selectedBin3 = $wheel->next(); // 22
-    $selectedBin4 = $wheel->next(); // 8
-    $selectedBin5 = $wheel->next(); // 0
-    $selectedBin6 = $wheel->next(); // 19
-    $selectedBin7 = $wheel->next(); // 37
+    $selectedBin1 = $wheel->next();
+    $selectedBin2 = $wheel->next();
+    $selectedBin3 = $wheel->next();
+    $selectedBin4 = $wheel->next();
+    $selectedBin5 = $wheel->next();
+    $selectedBin6 = $wheel->next();
+    $selectedBin7 = $wheel->next();
     
     $this->assertFalse($selectedBin1->hasValue($five));
     $this->assertFalse($selectedBin1->hasValue($zero));

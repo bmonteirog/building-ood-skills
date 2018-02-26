@@ -2,6 +2,8 @@
     "name": "bruno/building-ood-skills",
     "description": "Exercises from Building Skills in Object Oriented Design book",
     "type": "project",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "authors": [
         {
             "name": "Bruno Gomes",
@@ -10,11 +12,15 @@
     ],
     "require": {
         "phpunit/phpunit": "^6.5",
-        "equip/structure": "^1.1"
+        "equip/structure": "^1.1",
+        "clickalicious/rng": "^3.0"
     },
     "autoload": {
       "psr-4": {
         "Roulette\\" : "roulette/src/"
       }
+    },
+    "require-dev": {
+        "codedungeon/phpunit-result-printer": "^0.5.4"
     }
 }

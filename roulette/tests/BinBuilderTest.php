@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+namespace Roulette\Tests;
+
 use PHPUnit\Framework\TestCase;
 use Roulette\Wheel;
 use Roulette\Outcome;
@@ -116,11 +118,9 @@ final class BinBuilderTest extends TestCase
       'fiveBet' => null
     ];
 
-    /*
-      Will output the sequence:
-      28, 12, 21, 0, 5, 37, 20, 27, 33, 13
-    */
-    srand(111);
+    $rngStub = $this->createMock(\Clickalicious\Rng\Generator::class);
+    $rngStub->method('generate')->will($this->onConsecutiveCalls(28, 12, 21, 0, 5, 37, 20, 27, 33, 13));
+    $wheel->rng = $rngStub;
 
     $this->bin[0] = $this->wheel->next(); // 28
     $this->bin[1] = $this->wheel->next(); // 12

@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+namespace Roulette\Tests;
+
 use PHPUnit\Framework\TestCase;
 use Roulette\Outcome;
 

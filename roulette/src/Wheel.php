@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Roulette;
 
 use Exception;
+use Clickalicious\Rng\Generator;
 
 /**
  * Container for the Bins and picks one Bin at random
@@ -15,6 +16,11 @@ class Wheel
    * @var Bin[]
    */
   protected $bins;
+  
+  /**
+   * @var Bin[]
+   */
+  public $rng;
   
   /**
    * @var Outcome[]
@@ -38,6 +44,8 @@ class Wheel
     for ($i=0; $i < 38; $i++) {       
       $this->bins[$i] = new Bin();
     }
+    
+    $this->rng = new Generator();
   }
 
   /**
@@ -99,6 +107,6 @@ class Wheel
    */
   private function generateRandomNumber()
   {
-    return rand(0, 37);
+    return $this->rng->generate(0, 37);
   }
 }

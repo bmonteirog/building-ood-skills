@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+namespace Roulette\Tests;
+
 use PHPUnit\Framework\TestCase;
 
 use Roulette\Game;
@@ -26,8 +28,9 @@ use Roulette\Passenger57;
      $player = new Passenger57($table, $wheel);
      $game = new Game($wheel, $table);
      
-     // Will output the sequence 18, 32, 22, 8, 0, 19, 37
-     srand(7);
+     $rngStub = $this->createMock(\Clickalicious\Rng\Generator::class);
+     $rngStub->method('generate')->will($this->onConsecutiveCalls(18, 32, 22, 8, 0, 19, 37));
+     $wheel->rng = $rngStub;
      
      $game->cycle($player); // Red    (lose 15)     money: 485
      $game->cycle($player); // Red    (lose 15)     money: 470

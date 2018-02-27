@@ -38,7 +38,7 @@ use Roulette\Passenger57;
      $game->cycle($player); // Black  (win 15 + 15) money: 530
      $game->cycle($player); // 0      (lose 15)     money: 515
      
-     $this->assertTrue($player->getMoney() == 515);
+     $this->assertTrue($player->getStake() == 515);
    }
    
  }

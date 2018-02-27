@@ -18,20 +18,6 @@ class Passenger57 extends Player
   protected $black;
   
   /**
-   * Table used to place Bets
-   *
-   * @var Table
-   */
-  protected $table;
-  
-  /**
-   * Player available money
-   *
-   * @var int
-   */
-  protected $money;
-  
-  /**
   * Construct Passenger57 class
   *
   * @param Table
@@ -41,7 +27,7 @@ class Passenger57 extends Player
   {    
     $binBuilder = new BinBuilder();
     
-    $this->money = 500;
+    $this->stake = 500;
     $this->table = $table;    
     $this->wheel = $binBuilder->buildBins($wheel);
     $this->black = $this->wheel->getOutcome("Black");
@@ -53,20 +39,10 @@ class Passenger57 extends Player
   public function placeBets()
   {
     $betAmount = 15;
-    $this->money = $this->money - $betAmount;
+    $this->stake = $this->stake - $betAmount;
     
     $bet = new Bet($betAmount, $this->black);
     $this->table->placeBet($bet);
-  }
-  
-  /**
-   * Notification from the Game that the Bet was a winner
-   *
-   * @param Bet
-   */
-  public function win(Bet $bet)
-  {
-    $this->money = $this->money + $bet->winAmount();
   }
   
   /**
@@ -76,17 +52,17 @@ class Passenger57 extends Player
    */
   public function lose(Bet $bet)
   {
-    $this->money = $this->money - $bet->loseAmount();
+    $this->stake = $this->stake - $bet->loseAmount();
   }
   
   /**
-   * Player money getter
+   * Player stake getter
    *
    * @return int
    */
-  public function getMoney()
+  public function getStake()
   {
-    return $this->money;
+    return $this->stake;
   }
   
 }

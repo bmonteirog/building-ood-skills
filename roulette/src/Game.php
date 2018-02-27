@@ -48,12 +48,16 @@ class Game
     
     $winningBin = $this->wheel->next();
     
-    foreach ($this->table->getBets() as $bet) {
-      if ($winningBin->hasOutcome($bet->getOutcome())) {
-        $player->win($bet);        
-      } else {
-        $player->lose($bet);
+    if ($player->isPlaying()) {
+    
+      foreach ($this->table->getBets() as $bet) {
+        if ($winningBin->hasOutcome($bet->getOutcome())) {
+          $player->win($bet);        
+        } else {
+          $player->lose($bet);
+        }
       }
+
     }
   }
   

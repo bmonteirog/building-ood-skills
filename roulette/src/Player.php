@@ -39,12 +39,7 @@ abstract class Player
     */
     public function __construct(Table $table)
     {     
-        $binBuilder = new BinBuilder();
-    
-        $this->stake = 500;
-        $this->table = $table;    
-        $this->wheel = $binBuilder->buildBins($wheel);
-        $this->black = $this->wheel->getOutcome("Black");
+        $this->table = $table;
     }
 
     /**
@@ -64,7 +59,7 @@ abstract class Player
     */
     public function lose(Bet $bet)
     {
-        $this->stake = $this->stake + $bet->winAmount();
+        $this->stake = $this->stake - $bet->loseAmount();
     }
 
     /**
@@ -77,4 +72,33 @@ abstract class Player
         return true;
     }
 
+    /**
+     * Player amount setter
+     *
+     * @param int
+     */
+    public function setAmount(int $amount)
+    {
+        $this->amount = $amount;
+    }
+
+    /**
+     * Player stake setter
+     *
+     * @param int
+     */
+    public function setStake(int $stake)
+    {
+        $this->stake = $stake;
+    }
+
+    /**
+     * Player stake getter
+     *
+     * @return int
+     */
+    public function getStake()
+    {
+        return $this->stake;
+    }
 }

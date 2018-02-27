@@ -25,6 +25,13 @@ class MartingalePlayer extends Player
     protected $betMultiple;
 
     /**
+     * Outcome that this player will bet
+     *
+     * @var Outcome
+     */
+    public $outcome;
+
+    /**
     * Notification from the Game that the Bet was a winner
     *
     * @param Bet
@@ -47,6 +54,19 @@ class MartingalePlayer extends Player
         parent::lose($bin);
         
         $this->lossCount = $this->lossCount + 1;
-        $this->betMultiple = $this->betMultiple * 2;
+        $this->betMultiple = $this->lossCount * 2;
     }
+
+    /**
+     * Updates the Table with the various bets.
+     */
+    public function placeBets()
+    {
+        $amount = $this->betMultiple * $this->amount;
+
+        $this->stake = $this->stake - $amount;
+        
+        $bet = new Bet($amount, $this->outcome);
+        $this->table->placeBet($bet);
+    }    
 }

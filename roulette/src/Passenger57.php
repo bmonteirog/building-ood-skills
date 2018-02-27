@@ -20,49 +20,26 @@ class Passenger57 extends Player
   /**
   * Construct Passenger57 class
   *
-  * @param Table
-  * @param Wheel
+  * @param Table  
   */
-  public function __construct(Table $table, Wheel $wheel)
-  {    
-    $binBuilder = new BinBuilder();
+  public function __construct(Table $table)
+  { 
+    parent::__construct($table);
     
-    $this->stake = 500;
-    $this->table = $table;    
-    $this->wheel = $binBuilder->buildBins($wheel);
-    $this->black = $this->wheel->getOutcome("Black");
+    $this->black = $table->wheel->getOutcome("Black");
   }
   
   /**
    * Updates the Table with the various bets.
+   * 
+   * @param Outcome
    */
   public function placeBets()
   {
-    $betAmount = 15;
-    $this->stake = $this->stake - $betAmount;
+    $this->stake = $this->stake - $this->amount;
     
-    $bet = new Bet($betAmount, $this->black);
+    $bet = new Bet($this->amount, $this->black);
     $this->table->placeBet($bet);
-  }
-  
-  /**
-   * Notification from the Game that the Bet was a loser.
-   *
-   * @param Bet
-   */
-  public function lose(Bet $bet)
-  {
-    $this->stake = $this->stake - $bet->loseAmount();
-  }
-  
-  /**
-   * Player stake getter
-   *
-   * @return int
-   */
-  public function getStake()
-  {
-    return $this->stake;
   }
   
 }

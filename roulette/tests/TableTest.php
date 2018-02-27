@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
 use Roulette\Bet;
 use Roulette\Table;
 use Roulette\Outcome;
+use Roulette\Wheel;
 
 /**
  * The unit test should create at least two instances of Bet,
@@ -24,7 +25,7 @@ final class TableTest extends TestCase
     $bet1 = new Bet(16, $five);
     $bet2 = new Bet(34, $zero);
     
-    $table = new Table();
+    $table = new Table(new Wheel());
     
     $this->assertTrue($table->placeBet($bet1) > 0);
     $this->assertTrue($table->placeBet($bet2) > 0);

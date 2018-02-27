@@ -9,6 +9,7 @@ use Roulette\Game;
 use Roulette\Table;
 use Roulette\Wheel;
 use Roulette\Passenger57;
+use Roulette\BinBuilder;
 
 /**
  * This demo program creates the Wheel, the stub
@@ -22,23 +23,26 @@ use Roulette\Passenger57;
    
    public function testCanCreateGame()
    {
-     $wheel = new Wheel();
-     $table = new Table();
+      $binBuilder = new BinBuilder();    
+      $table = new Table($binBuilder->buildBins(new Wheel()));      
      
-     $player = new Passenger57($table, $wheel);
-     $game = new Game($wheel, $table);
+      $player = new Passenger57($table);
+      $player->setStake(500);
+      $player->setAmount(15);
      
-     $rngStub = $this->createMock(\Clickalicious\Rng\Generator::class);
-     $rngStub->method('generate')->will($this->onConsecutiveCalls(18, 32, 22, 8, 0, 19, 37));
-     $wheel->rng = $rngStub;
+      $game = new Game($table->wheel, $table);
      
-     $game->cycle($player); // Red    (lose 15)     money: 485
-     $game->cycle($player); // Red    (lose 15)     money: 470
-     $game->cycle($player); // Black  (win 15 + 15) money: 500
-     $game->cycle($player); // Black  (win 15 + 15) money: 530
-     $game->cycle($player); // 0      (lose 15)     money: 515
+      $rngStub = $this->createMock(\Clickalicious\Rng\Generator::class);
+      $rngStub->method('generate')->will($this->onConsecutiveCalls(18, 32, 22, 8, 0, 19, 37));
+      $table->wheel->rng = $rngStub;
      
-     $this->assertTrue($player->getStake() == 515);
+      $game->cycle($player); // Red    (lose 15)     money: 485
+      $game->cycle($player); // Red    (lose 15)     money: 470
+      $game->cycle($player); // Black  (win 15 + 15) money: 500
+      $game->cycle($player); // Black  (win 15 + 15) money: 530
+      $game->cycle($player); // 0      (lose 15)     money: 515
+     
+      $this->assertTrue($player->getStake() == 515);
    }
    
  }

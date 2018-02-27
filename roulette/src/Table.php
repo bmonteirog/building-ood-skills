@@ -25,13 +25,19 @@ class Table
    * @var Bet[]
    */
   protected $bets;
+
+  /**
+   * @var Wheel
+   */
+  public $wheel;
   
   /**
    * Table constructor
    */  
-  public function __construct()
+  public function __construct(Wheel $wheel)
   {
     $this->bets = [];
+    $this->wheel = $wheel;
   }
   
   /**

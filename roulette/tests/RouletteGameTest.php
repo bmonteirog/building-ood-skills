@@ -5,11 +5,14 @@ namespace Roulette\Tests;
 
 use PHPUnit\Framework\TestCase;
 
-use Roulette\Game;
-use Roulette\Table;
-use Roulette\Wheel;
-use Roulette\Passenger57;
-use Roulette\BinBuilder;
+use Roulette\{
+  Game,
+  Table,
+  Wheel,
+  Passenger57,
+  BinBuilder
+};
+
 
 /**
  * This demo program creates the Wheel, the stub

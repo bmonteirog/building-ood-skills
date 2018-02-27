@@ -5,10 +5,13 @@ namespace Roulette\Tests;
 
 use PHPUnit\Framework\TestCase;
 
-use Roulette\Bet;
-use Roulette\Table;
-use Roulette\Outcome;
-use Roulette\Wheel;
+use Roulette\{
+  Bet,
+  Table,
+  Outcome,
+  Wheel
+};
+
 
 /**
  * The unit test should create at least two instances of Bet,

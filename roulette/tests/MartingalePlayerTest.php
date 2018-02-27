@@ -5,12 +5,14 @@ namespace Roulette\Tests;
 
 use PHPUnit\Framework\TestCase;
 
-use Roulette\Outcome;
-use Roulette\Bet;
-use Roulette\MartingalePlayer;
-use Roulette\Wheel;
-use Roulette\Table;
-use Roulette\BinBuilder;
+use Roulette\{
+  Outcome,
+  Bet,
+  MartingalePlayer,
+  Wheel,
+  Table,
+  BinBuilder
+};
 
 /**
  * This test should synthesize a fixed list of Outcome s, Bin s, and calls a Martingale

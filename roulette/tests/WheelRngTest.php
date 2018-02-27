@@ -3,9 +3,13 @@ declare(strict_types=1);
 
 namespace Roulette\Tests;
 
-use Roulette\Wheel;
-use Roulette\Outcome;
 use PHPUnit\Framework\TestCase;
+
+use Roulette\{
+  Wheel,
+  Outcome
+};
+
 
 /**
  * Tests the Wheel class by selecting “random” values from a Wheel object using 

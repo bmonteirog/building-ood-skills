@@ -4,8 +4,12 @@ declare(strict_types=1);
 namespace Roulette\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Roulette\Wheel;
-use Roulette\Outcome;
+
+use Roulette\{
+  Wheel,
+  Outcome
+};
+
 
 /**
  * The unit test should create several instances of Outcome, two instances of 

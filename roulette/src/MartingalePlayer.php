@@ -15,14 +15,14 @@ class MartingalePlayer extends Player
      * 
      * @var int
      */
-    protected $lossCount;
+    protected $lossCount = 0;
 
     /**
      * The the bet multiplier, based on the number of losses. 
      * This starts at 1, and is reset to 1 on each win. It is doubled in each loss. 
      * This is always equal to 2 ^ lossCount.
      */
-    protected $betMultiple;
+    protected $betMultiple = 1;
 
     /**
      * Outcome that this player will bet
@@ -51,7 +51,7 @@ class MartingalePlayer extends Player
     */
     public function lose(Bet $bet)
     {
-        parent::lose($bin);
+        parent::lose($bet);
         
         $this->lossCount = $this->lossCount + 1;
         $this->betMultiple = $this->lossCount * 2;
@@ -63,8 +63,6 @@ class MartingalePlayer extends Player
     public function placeBets()
     {
         $amount = $this->betMultiple * $this->amount;
-
-        $this->stake = $this->stake - $amount;
         
         $bet = new Bet($amount, $this->outcome);
         $this->table->placeBet($bet);

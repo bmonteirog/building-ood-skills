@@ -36,8 +36,6 @@ class Passenger57 extends Player
    */
   public function placeBets()
   {
-    $this->stake = $this->stake - $this->amount;
-    
     $bet = new Bet($this->amount, $this->black);
     $this->table->placeBet($bet);
   }

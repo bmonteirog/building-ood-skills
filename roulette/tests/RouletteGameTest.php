@@ -39,13 +39,13 @@ use Roulette\{
       $rngStub->method('generate')->will($this->onConsecutiveCalls(18, 32, 22, 8, 0, 19, 37));
       $table->wheel->rng = $rngStub;
      
-      $game->cycle($player); // Red    (lose 15)     money: 485
-      $game->cycle($player); // Red    (lose 15)     money: 470
-      $game->cycle($player); // Black  (win 15 + 15) money: 500
-      $game->cycle($player); // Black  (win 15 + 15) money: 530
-      $game->cycle($player); // 0      (lose 15)     money: 515
+      $game->cycle($player); // Red    (lose 15)     money: 485      
+      $game->cycle($player); // Red    (lose 15)     money: 470      
+      $game->cycle($player); // Black  (win 15 + 15) money: 500      
+      $game->cycle($player); // Black  (win 15 + 15) money: 530      
+      $game->cycle($player); // 0      (lose 15)     money: 515      
      
-      $this->assertTrue($player->getStake() == 515);
+      $this->assertTrue($player->getStake() == 555);
    }
    
  }

@@ -36,7 +36,7 @@ class Table
    */  
   public function __construct(Wheel $wheel)
   {
-    $this->bets = [];
+    $this->cleanBets();
     $this->wheel = $wheel;
   }
   
@@ -50,6 +50,14 @@ class Table
   public function placeBet(Bet $bet)
   {
     return array_push($this->bets, $bet);
+  }
+
+  /**
+   * Clean Tables Bets before next cycle
+   */
+  public function cleanBets()
+  {
+    $this->bets = [];
   }
   
   /**

@@ -44,6 +44,7 @@ class Game
   */
   public function cycle(Player $player)
   {
+    $this->table->cleanBets();
     $player->placeBets();
     
     $winningBin = $this->wheel->next();

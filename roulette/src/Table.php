@@ -34,10 +34,12 @@ class Table
   /**
    * Table constructor
    */  
-  public function __construct(Wheel $wheel)
+  public function __construct(Wheel $wheel, int $minimum = 10, int $limit = 5000)
   {
     $this->cleanBets();
     $this->wheel = $wheel;
+    $this->minimum = $minimum;
+    $this->limit = $limit;
   }
   
   /**
@@ -49,6 +51,8 @@ class Table
    */
   public function placeBet(Bet $bet)
   {
+    $this->isValid($bet);
+    
     return array_push($this->bets, $bet);
   }
 
@@ -72,28 +76,37 @@ class Table
   
   /**
    * Check if all bets pass the table limit rules
+   * 
+   * @param Bet $bet
    *
    * @throws InvalidBetException   
    */
-  public function isValid()
+  public function isValid(Bet $bet)
   {
-    foreach ($this->bets as $bet) {
-      if (!$this->validateBet($bet)) {
-        throw new InvalidBetException("Invalid Bet", 1);        
-      }
+    if (!$this->validateBets($bet)) {
+      throw new InvalidBetException("Invalid Bet: " . $bet, 1);
     }
   }
   
   /**
-   * Check if a single bet pass the validation rules
-   *
-   * @param Bet
+   * Check if the bets respects Table's minimum and limit
+   * 
+   * @param Bet $bet
    *
    * @return bool
    */
-  private function validateBet(Bet $bet)
+  private function validateBets(Bet $bet)
   {
-    
+    $currentStake = $bet->getAmount();
+
+    foreach ($this->bets as $placedBet) {
+      $currentStake = $currentStake + $placedBet->getAmount();
+    }
+
+    $tooLow = $currentStake < $this->minimum;
+    $tooHigh = $currentStake > $this->limit;
+
+    return !$tooLow && !$tooHigh;
   }
   
 }

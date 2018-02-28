@@ -50,6 +50,16 @@ class Bet
    {
      return $this->amountBet;
    }
+
+   /**
+    * Amount Getter
+    *
+    * @return int
+    */
+    public function getAmount()
+    {
+      return $this->amountBet;
+    }   
    
    /**
     * Easy-to-read representation of the Bet

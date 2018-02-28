@@ -73,7 +73,17 @@ class Table
   {
     return $this->bets;
   }
-  
+
+  /**
+  * Return Table minimum
+  *
+  * @return int
+  */
+  public function getMinimun()
+  {
+    return $this->minimum;
+  }
+
   /**
    * Check if all bets pass the table limit rules
    * 

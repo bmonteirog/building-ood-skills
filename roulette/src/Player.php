@@ -14,6 +14,13 @@ abstract class Player
     protected $stake;
 
     /**
+    * Amount to bet
+    *
+    * @var int
+    */
+    protected $amount;
+
+    /**
     * The number of rounds left to play.
     *
     * @var int
@@ -26,6 +33,14 @@ abstract class Player
     * @var Table
     */
     protected $table;
+
+    /**
+    * Stores the total of rounds played
+    *
+    * @var int
+    */
+    protected $roundsPlayed = 0;
+    
 
     /**
     * Updates the Table with the various bets.
@@ -50,6 +65,7 @@ abstract class Player
     public function win(Bet $bet)
     {
         $this->stake = $this->stake + $bet->winAmount();
+        $this->roundsPlayed = $this->roundsPlayed + 1;
     }
 
     /**
@@ -60,6 +76,7 @@ abstract class Player
     public function lose(Bet $bet)
     {
         $this->stake = $this->stake - $bet->loseAmount();
+        $this->roundsPlayed = $this->roundsPlayed + 1;
     }
 
     /**
@@ -69,7 +86,9 @@ abstract class Player
      */
     public function isPlaying()
     {
-        return true;
+        $hasStake = $this->stake > $this->table->getMinimun();
+        $notPlayedEnough = $this->roundsPlayed < $this->roundsToGo;
+        return $hasStake && $notPlayedEnough;
     }
 
     /**
@@ -81,6 +100,17 @@ abstract class Player
     {
         $this->amount = $amount;
     }
+
+    /**
+     * Player Rounds to Go setter
+     *
+     * @param int
+     */
+    public function setRoundsToGo(int $roundsToGo)
+    {
+        $this->roundsToGo = $roundsToGo;
+    }
+
 
     /**
      * Player stake setter

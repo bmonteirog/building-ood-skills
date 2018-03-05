@@ -39,6 +39,7 @@ final class MartingalePlayerTest extends TestCase
     $this->player = new MartingalePlayer($this->table);
     $this->player->setStake(500);
     $this->player->setAmount(15);
+    $this->player->setRoundsToGo(50);
   }
   
   public function testCanDoubleBets()

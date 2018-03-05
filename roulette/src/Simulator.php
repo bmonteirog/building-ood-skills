@@ -24,7 +24,7 @@ class Simulator
      * 
      * @var int
      */
-    protected $initStake = 100;
+    protected $initStake = 500;
 
     /**
      * The number of game cycles to simulate
@@ -84,6 +84,7 @@ class Simulator
     {
         $this->player->setStake($this->initStake);
         $this->player->setRoundsToGo($this->initDuration);
+        $this->player->restartPlayer();
 
         $stakeValues = [];
 

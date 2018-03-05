@@ -21,47 +21,47 @@ abstract class Player
     protected $amount;
 
     /**
-    * The number of rounds left to play.
-    *
-    * @var int
-    */
+     * The number of rounds left to play.
+     *
+     * @var int
+     */
     protected $roundsToGo;
 
     /**
-    * Table used to place Bets
-    *
-    * @var Table
-    */
+     * Table used to place Bets
+     *
+     * @var Table
+     */
     protected $table;
 
     /**
-    * Stores the total of rounds played
-    *
-    * @var int
-    */
+     * Stores the total of rounds played
+     *
+     * @var int
+     */
     protected $roundsPlayed = 0;
     
 
     /**
-    * Updates the Table with the various bets.
-    */
+     * Updates the Table with the various bets.
+     */
     abstract public function placeBets();
 
     /**
-    * Construct Player class
-    *
-    * @param Table
-    */
+     * Construct Player class
+     *
+     * @param Table
+     */
     public function __construct(Table $table)
     {     
         $this->table = $table;
     }
 
     /**
-    * Notification from the Game that the Bet was a winner
-    *
-    * @param Bet
-    */
+     * Notification from the Game that the Bet was a winner
+     *
+     * @param Bet
+     */
     public function win(Bet $bet)
     {
         $this->stake = $this->stake + $bet->winAmount();
@@ -69,10 +69,10 @@ abstract class Player
     }
 
     /**
-    * Notification from the Game that the Bet lost
-    *
-    * @param Bet
-    */
+     * Notification from the Game that the Bet lost
+     *
+     * @param Bet
+     */
     public function lose(Bet $bet)
     {
         $this->stake = $this->stake - $bet->loseAmount();
@@ -86,7 +86,7 @@ abstract class Player
      */
     public function isPlaying()
     {
-        $hasStake = $this->stake > $this->table->getMinimun();
+        $hasStake = $this->stake > $this->table->getMinimum();
         $notPlayedEnough = $this->roundsPlayed < $this->roundsToGo;
         return $hasStake && $notPlayedEnough;
     }
@@ -131,4 +131,15 @@ abstract class Player
     {
         return $this->stake;
     }
+
+    /**
+     * Player rounds played setter
+     *
+     * @return int
+     */
+    public function setRoundsPlayed(int $roundsPlayed)
+    {
+        return $this->roundsPlayed = $roundsPlayed;
+    }
+    
 }

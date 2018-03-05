@@ -66,5 +66,15 @@ class MartingalePlayer extends Player
         
         $bet = new Bet($amount, $this->outcome);
         $this->table->placeBet($bet);
-    }    
+    }
+
+    /**
+     * Restart player's vars
+     */
+    public function restartPlayer()
+    {
+        $this->lossCount = 0;
+        $this->betMultiple = 1;
+        $this->setRoundsPlayed(0);
+    }
 }

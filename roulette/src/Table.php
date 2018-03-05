@@ -79,7 +79,7 @@ class Table
   *
   * @return int
   */
-  public function getMinimun()
+  public function getMinimum()
   {
     return $this->minimum;
   }

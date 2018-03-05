@@ -17,13 +17,8 @@ class Game
   /**
    * @var Table
    */
-  protected $table;
-    
-  /**
-   * @var Player
-   */
-  protected $player;
-  
+  protected $table;   
+ 
   /**
    * Constructs a new Game, using a given Wheel and Table.
    *

@@ -32,6 +32,7 @@ use Roulette\{
       $player = new Passenger57($table);
       $player->setStake(500);
       $player->setAmount(15);
+      $player->setRoundsToGo(30);
      
       $game = new Game($table->wheel, $table);
      

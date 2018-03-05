@@ -15,7 +15,7 @@ use Roulette\Outcome;
 $binBuilder = new BinBuilder();
 $table = new Table($binBuilder->buildBins(new Wheel()));
 $player = new MartingalePlayer($table);
-$player->setAmount(20);
+$player->setAmount(10);
 $player->outcome = new Outcome("Red", 1);
 $game = new Game($table->wheel, $table);
 $simulator = new Simulator($game, $player);

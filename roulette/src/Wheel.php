@@ -44,8 +44,8 @@ class Wheel
     for ($i=0; $i < 38; $i++) {       
       $this->bins[$i] = new Bin();
     }
-    
-    $this->rng = new Generator();
+
+    $this->rng = new Generator(Generator::MODE_PHP_MERSENNE_TWISTER);
   }
 
   /**

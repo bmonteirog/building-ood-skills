@@ -26,10 +26,7 @@ final class BinBuilderTest extends TestCase
 
   protected function setUp()
   {
-    $wheel = new Wheel();
-    $binBuilder = new BinBuilder();
-
-    $this->wheel = $binBuilder->buildBins($wheel);
+    $this->wheel = new Wheel();
 
     $this->outcomes[0] = [
       'straight' => new Outcome('0', 35),
@@ -123,7 +120,7 @@ final class BinBuilderTest extends TestCase
 
     $rngStub = $this->createMock(\Clickalicious\Rng\Generator::class);
     $rngStub->method('generate')->will($this->onConsecutiveCalls(28, 12, 21, 0, 5, 37, 20, 27, 33, 13));
-    $wheel->rng = $rngStub;
+    $this->wheel->rng = $rngStub;
 
     $this->bin[0] = $this->wheel->next(); // 28
     $this->bin[1] = $this->wheel->next(); // 12

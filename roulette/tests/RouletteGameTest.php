@@ -26,8 +26,7 @@ use Roulette\{
    
    public function testCanCreateGame()
    {
-      $binBuilder = new BinBuilder();    
-      $table = new Table($binBuilder->buildBins(new Wheel()));      
+      $table = new Table(new Wheel());      
      
       $player = new Passenger57($table);
       $player->setStake(500);

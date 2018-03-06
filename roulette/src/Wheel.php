@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Roulette;
 
 use Exception;
+use Roulette\BinBuilder;
 use Clickalicious\Rng\Generator;
 
 /**
@@ -44,6 +45,9 @@ class Wheel
     for ($i=0; $i < 38; $i++) {       
       $this->bins[$i] = new Bin();
     }
+
+    $binBuilder = new BinBuilder();
+    $binBuilder->buildBins($this);
 
     $this->rng = new Generator(Generator::MODE_PHP_MERSENNE_TWISTER);
   }

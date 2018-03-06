@@ -33,9 +33,8 @@ final class MartingalePlayerTest extends TestCase
   {
     $this->outcomes['black'] = new Outcome('Black', 1);
     $this->outcomes['red'] = new Outcome('Red', 1);
-
-    $binBuilder = new BinBuilder();    
-    $this->table = new Table($binBuilder->buildBins(new Wheel()));
+    
+    $this->table = new Table(new Wheel());
     $this->player = new MartingalePlayer($this->table);
     $this->player->setStake(500);
     $this->player->setAmount(15);

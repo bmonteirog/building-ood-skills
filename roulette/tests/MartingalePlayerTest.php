@@ -6,7 +6,6 @@ namespace Roulette\Tests;
 use PHPUnit\Framework\TestCase;
 
 use Roulette\{
-  Outcome,
   Bet,
   MartingalePlayer,
   Wheel,
@@ -23,17 +22,12 @@ use Roulette\{
 final class MartingalePlayerTest extends TestCase
 {
 
-  protected $outcomes;
-
   protected $player;
 
   protected $table;
 
   public function setUp()
   {
-    $this->outcomes['black'] = new Outcome('Black', 1);
-    $this->outcomes['red'] = new Outcome('Red', 1);
-    
     $this->table = new Table(new Wheel());
     $this->player = new MartingalePlayer($this->table);
     $this->player->setStake(500);
@@ -43,8 +37,6 @@ final class MartingalePlayerTest extends TestCase
   
   public function testCanDoubleBets()
   {
-    $this->player->outcome = $this->outcomes['black'];
-
     $rngStub = $this->createMock(\Clickalicious\Rng\Generator::class);
     $rngStub->method('generate')->will($this->onConsecutiveCalls(19, 21, 36));
     $this->table->wheel->rng = $rngStub;
@@ -60,8 +52,6 @@ final class MartingalePlayerTest extends TestCase
 
   public function testIsResetOnWin()
   {
-    $this->player->outcome = $this->outcomes['black'];
-
     $rngStub = $this->createMock(\Clickalicious\Rng\Generator::class);
     $rngStub->method('generate')->will($this->onConsecutiveCalls(19, 21, 24, 36));
     $this->table->wheel->rng = $rngStub;

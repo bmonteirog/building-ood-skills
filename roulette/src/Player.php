@@ -48,6 +48,13 @@ abstract class Player
     abstract public function placeBets();
 
     /**
+     * The game will notify a player of each spin using this method.
+     * 
+     * @param Bin $winningBin
+     */
+    abstract public function winners(Bin $winningBin);
+
+    /**
      * Construct Player class
      *
      * @param Table
@@ -86,9 +93,8 @@ abstract class Player
      */
     public function isPlaying()
     {
-        $hasStake = $this->stake > $this->table->getMinimum();
         $notPlayedEnough = $this->roundsPlayed < $this->roundsToGo;
-        return $hasStake && $notPlayedEnough;
+        return $notPlayedEnough;
     }
 
     /**

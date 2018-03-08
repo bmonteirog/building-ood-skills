@@ -17,11 +17,6 @@ class Table
   protected $limit;
   
   /**
-   * @var int
-   */
-  protected $minimum;
-  
-  /**
    * @var Bet[]
    */
   protected $bets;
@@ -34,11 +29,10 @@ class Table
   /**
    * Table constructor
    */  
-  public function __construct(Wheel $wheel, int $minimum = 10, int $limit = 5000)
+  public function __construct(Wheel $wheel, int $limit = 5000)
   {
     $this->cleanBets();
-    $this->wheel = $wheel;
-    $this->minimum = $minimum;
+    $this->wheel = $wheel;   
     $this->limit = $limit;
   }
   
@@ -75,16 +69,6 @@ class Table
   }
 
   /**
-  * Return Table minimum
-  *
-  * @return int
-  */
-  public function getMinimum()
-  {
-    return $this->minimum;
-  }
-
-  /**
    * Check if all bets pass the table limit rules
    * 
    * @param Bet $bet
@@ -113,10 +97,9 @@ class Table
       $currentStake = $currentStake + $placedBet->getAmount();
     }
 
-    $tooLow = $currentStake < $this->minimum;
     $tooHigh = $currentStake > $this->limit;
 
-    return !$tooLow && !$tooHigh;
+    return !$tooHigh;
   }
   
 }

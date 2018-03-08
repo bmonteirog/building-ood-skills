@@ -39,5 +39,15 @@ class Passenger57 extends Player
     $bet = new Bet($this->amount, $this->black);
     $this->table->placeBet($bet);
   }
+
+    /**
+     * The game will notify a player of each spin using this method.
+     * 
+     * @param Bin $winningBin
+     */
+    public function winners(Bin $winningBin)
+    {
+
+    }
   
 }

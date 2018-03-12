@@ -17,5 +17,4 @@ $simulator = new Simulator($game, $player);
 
 $simulator->gather();
 
-print_r($simulator->durations);
-print_r($simulator->maxima);
+echo $simulator->stats->results();

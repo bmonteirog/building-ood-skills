@@ -4,7 +4,8 @@ declare(strict_types=1);
 namespace Roulette;
 
 /**
- * Game manages the sequence of actions that defines the game of Roulette.
+ * Game manages the sequence of actions that defines the game of 
+ * Roulette.
  */
 class Game
 {

@@ -34,18 +34,9 @@ class Simulator
     protected $samples = 50;
 
     /**
-     * A List of lengths of time the Player remained in the game
-     * 
-     * @var array
+     * @var IntegerStatistics
      */
-    public $durations;
-
-    /**
-     * A List of maximum stakes for each Player
-     * 
-     * @var array
-     */
-    public $maxima;
+    public $stats;
 
     /**
      * Essentially, the betting strategy we are simulating
@@ -66,6 +57,8 @@ class Simulator
      */
     public function __construct(Game $game, Player $player)
     {
+        $this->stats = new IntegerStatistics();
+
         $this->game = $game;
         $this->player = $player;
         $this->durations = [];
@@ -108,8 +101,9 @@ class Simulator
         for ($gameCounter = 0; $gameCounter < $this->samples; $gameCounter++) {
             $sessionList = $this->session();
 
-            array_push($this->durations, sizeof($sessionList));
-            array_push($this->maxima, max($sessionList));
+            $this->stats->addDuration(sizeof($sessionList));
+            $this->stats->addMaxima(max($sessionList));
         }
     }
+
 }

@@ -32,9 +32,9 @@ final class BetTest extends TestCase
     $bet2 = new Bet(7, $this->outcomes['zero']);
     $bet3 = new Bet(19, $this->outcomes['zerozero']);
     
-    $this->assertTrue($bet1->winAmount() == 70);
-    $this->assertTrue($bet2->winAmount() == 252);
-    $this->assertTrue($bet3->winAmount() == 684);
+    $this->assertEquals($bet1->winAmount(), 60);
+    $this->assertEquals($bet2->winAmount(), 245);
+    $this->assertEquals($bet3->winAmount(), 665);
   }
   
   public function testCanGetLoseAmount()
@@ -43,9 +43,9 @@ final class BetTest extends TestCase
     $bet2 = new Bet(70, $this->outcomes['zero']);
     $bet3 = new Bet(41, $this->outcomes['zerozero']);
     
-    $this->assertTrue($bet1->loseAmount() == 3);
-    $this->assertTrue($bet2->loseAmount() == 70);
-    $this->assertTrue($bet3->loseAmount() == 41);
+    $this->assertEquals($bet1->loseAmount(), 3);
+    $this->assertEquals($bet2->loseAmount(), 70);
+    $this->assertEquals($bet3->loseAmount(), 41);
   }
   
 }

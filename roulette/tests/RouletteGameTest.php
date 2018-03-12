@@ -41,11 +41,11 @@ use Roulette\{
      
       $game->cycle($player); // Red    (lose 15)     money: 485      
       $game->cycle($player); // Red    (lose 15)     money: 470      
-      $game->cycle($player); // Black  (win 15 + 15) money: 500      
-      $game->cycle($player); // Black  (win 15 + 15) money: 530      
-      $game->cycle($player); // 0      (lose 15)     money: 515      
+      $game->cycle($player); // Black  (win 15)      money: 485      
+      $game->cycle($player); // Black  (win 15)      money: 500      
+      $game->cycle($player); // 0      (lose 15)     money: 485      
      
-      $this->assertTrue($player->getStake() == 515);
+      $this->assertEquals($player->getStake(), 485);
    }
    
  }

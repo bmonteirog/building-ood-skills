@@ -44,10 +44,13 @@ final class MartingalePlayerTest extends TestCase
     $game = new Game($this->table->wheel, $this->table);
 
     $game->cycle($this->player); // Red    (lose 15)     money: 485
+    $this->assertEquals($this->player->getStake(), 485);
+
     $game->cycle($this->player); // Red    (lose 45)     money: 455
-    $game->cycle($this->player); // Red    (lose 60)     money: 395
-    
-    $this->assertTrue($this->player->getStake() == 395);
+    $this->assertEquals($this->player->getStake(), 455);
+
+    $game->cycle($this->player); // Red    (lose 60)     money: 395    
+    $this->assertEquals($this->player->getStake(), 395);
   }
 
   public function testIsResetOnWin()
@@ -60,10 +63,10 @@ final class MartingalePlayerTest extends TestCase
 
     $game->cycle($this->player); // Red    (lose 15)     money: 485
     $game->cycle($this->player); // Red    (lose 30)     money: 455    
-    $game->cycle($this->player); // Black  (win 120)     money: 575 Reset Counters
-    $game->cycle($this->player); // Red    (lose 15)     money: 560    
+    $game->cycle($this->player); // Black  (win 60)      money: 515 Reset Counters
+    $game->cycle($this->player); // Red    (lose 15)     money: 500    
     
-    $this->assertTrue($this->player->getStake() == 560);
+    $this->assertEquals($this->player->getStake(), 500);
   }
 
 }

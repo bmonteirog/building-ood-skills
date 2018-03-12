@@ -38,7 +38,7 @@ class Bet
     */
    public function winAmount()
    {
-     return $this->amountBet + $this->outcome->winAmount($this->amountBet);
+     return $this->outcome->winAmount($this->amountBet);
    }
    
    /**

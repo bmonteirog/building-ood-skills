@@ -44,6 +44,8 @@ class Game
     $player->placeBets();
     
     $winningBin = $this->wheel->next();
+
+    $player->winners($winningBin);
     
     if ($player->isPlaying()) {
     
@@ -56,8 +58,6 @@ class Game
       }
 
     }
-
-    $player->winners($winningBin);
   }
   
 }

@@ -45,5 +45,7 @@ class SevenRedsPlayer extends MartingalePlayer
         } else {
             $this->redCounts = 7;
         }
+
+        $this->roundsPlayed = $this->roundsPlayed + 1;
     }
 }

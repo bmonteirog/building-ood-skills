@@ -31,8 +31,6 @@ class Passenger57 extends Player
   
   /**
    * Updates the Table with the various bets.
-   * 
-   * @param Outcome
    */
   public function placeBets()
   {
@@ -40,14 +38,14 @@ class Passenger57 extends Player
     $this->table->placeBet($bet);
   }
 
-    /**
-     * The game will notify a player of each spin using this method.
-     * 
-     * @param Bin $winningBin
-     */
-    public function winners(Bin $winningBin)
-    {
+  /**
+   * The game will notify a player of each spin using this method.
+   * 
+   * @param Bin $winningBin
+   */
+  public function winners(Bin $winningBin)
+  {
 
-    }
+  }
   
 }

@@ -35,4 +35,12 @@ class Bin extends ImmutableSet
     return false;
   }
 
+  /**
+   * Return all available Outcomes
+   */
+  public function getAllOutcomes()
+  {
+    return $this->toArray();
+  }
+
 }

@@ -50,4 +50,17 @@ final class WheelTest extends TestCase
     $this->assertTrue($wheel->getOutcome('00')->equals($zerozero));
   }
   
+  public function testCanGetAllBins()
+  {
+    $wheel = new Wheel();
+    $expectedNumberOfBins = 38;
+    $binCounter = 0;
+    
+    foreach ($wheel->getAllBins() as $i => $bin) {
+      $binCounter++;
+    }
+    
+    $this->assertEquals($binCounter, $expectedNumberOfBins);
+
+  }
 }

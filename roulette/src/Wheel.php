@@ -19,7 +19,7 @@ class Wheel
   protected $bins;
   
   /**
-   * @var Bin[]
+   * @var Clickalicious\Rng\Generator
    */
   public $rng;
   
@@ -102,6 +102,16 @@ class Wheel
   private function get(int $bin)
   {
     return $this->bins[$bin];
+  }
+
+  /**
+   * Returns all Bins
+   *
+   * @return Bin[]
+   */
+  public function getAllBins()
+  {
+    return $this->bins;
   }
   
   /**

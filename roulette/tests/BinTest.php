@@ -16,30 +16,50 @@ use Roulette\{
  */
 final class BinTest extends TestCase
 {
+
+  protected $five;
+
+  protected $zero;
+
+  protected $zerozero;
+
+  public function setUp()
+  {
+    $this->five = new Outcome('00-0-1-2-3', 6);
+    $this->zero = new Outcome('0', 35);
+    $this->zerozero = new Outcome('00', 35);
+  }
   
   public function testCanConstructBinfromOutcomes()
-  {
-    $five = new Outcome('00-0-1-2-3', 6);
-    $zero = new Outcome('0', 35);
-    $zerozero = new Outcome('00', 35);
-    
+  { 
     $zeroBin = new Bin([
-      $five,
-      $zero
+      $this->five,
+      $this->zero
     ]);
     
     $zerozeroBin = new Bin([
-      $five,
-      $zerozero
+      $this->five,
+      $this->zerozero
     ]);
     
-    $this->assertTrue($zeroBin->hasValue($five));
-    $this->assertTrue($zeroBin->hasValue($zero));
-    $this->assertFalse($zeroBin->hasValue($zerozero));
+    $this->assertTrue($zeroBin->hasValue($this->five));
+    $this->assertTrue($zeroBin->hasValue($this->zero));
+    $this->assertFalse($zeroBin->hasValue($this->zerozero));
     
-    $this->assertTrue($zerozeroBin->hasValue($five));
-    $this->assertTrue($zerozeroBin->hasValue($zerozero));
-    $this->assertFalse($zerozeroBin->hasValue($zero));
+    $this->assertTrue($zerozeroBin->hasValue($this->five));
+    $this->assertTrue($zerozeroBin->hasValue($this->zerozero));
+    $this->assertFalse($zerozeroBin->hasValue($this->zero));
   }
   
+  public function testCanGetAllOutcomesFromBin()
+  {
+    $outcomes = [
+      $this->five,
+      $this->zerozero
+    ];
+
+    $zerozeroBin = new Bin($outcomes);
+
+    $this->assertEquals($zerozeroBin->getAllOutcomes(), $outcomes);
+  }
 }

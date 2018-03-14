@@ -147,5 +147,5 @@ abstract class Player
     {
         return $this->roundsPlayed = $roundsPlayed;
     }
-    
+
 }

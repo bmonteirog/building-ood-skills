@@ -48,7 +48,15 @@ class RandomPlayer extends Player
             }
         }
 
-        return $allOutcomes[$this->rng->generate(0, count($allOutcomes))];
+        return $allOutcomes[$this->rng->generate(0, count($allOutcomes) - 1)];
+    }
+
+    /**
+     * Restart player's vars
+     */
+    public function restartPlayer()
+    {
+        $this->setRoundsPlayed(0);
     }
 
     /**

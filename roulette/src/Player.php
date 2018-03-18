@@ -7,17 +7,17 @@ abstract class Player
 {
 
     /**
-    * Player available stake
-    *
-    * @var int
-    */
+     * Player available stake
+     *
+     * @var int
+     */
     protected $stake;
 
     /**
-    * Amount to bet
-    *
-    * @var int
-    */
+     * Amount to bet
+     *
+     * @var int
+     */
     protected $amount;
 
     /**
@@ -105,6 +105,16 @@ abstract class Player
     public function setAmount(int $amount)
     {
         $this->amount = $amount;
+    }
+
+    /**
+     * Player amount getter
+     *
+     * @return int
+     */
+    public function getAmount()
+    {
+        return $this->amount;
     }
 
     /**

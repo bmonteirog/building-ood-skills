@@ -3,14 +3,14 @@
 require __DIR__.'/vendor/autoload.php';
 
 use Roulette\Simulator;
-use Roulette\RandomPlayer;
+use Roulette\Player1326 as Player;
 use Roulette\Table;
 use Roulette\Wheel;
 use Roulette\Game;
 
 
 $table = new Table(new Wheel());
-$player = new RandomPlayer($table);
+$player = new Player($table);
 $player->setAmount(10);
 $game = new Game($table->wheel, $table);
 $simulator = new Simulator($game, $player);

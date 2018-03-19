@@ -31,6 +31,13 @@ class Player1326State
     protected $nextStateWin;
 
     /**
+     * State Factory Instance
+     * 
+     * @var Player1326StateFactory
+     */
+    protected $stateFactory;
+
+    /**
      * Player1326State constructor
      * 
      * @param Player1326 $player
@@ -38,6 +45,7 @@ class Player1326State
     public function __construct(Player1326 $player)
     {
         $this->player = $player;
+        $this->stateFactory = new Player1326StateFactory($player);
     }
 
     /**
@@ -58,7 +66,7 @@ class Player1326State
      */
     public function nextWon()
     {
-        return new $this->nextStateWin($this->player);
+        return $this->stateFactory->get($this->nextStateWin);
     }
 
     /**
@@ -68,7 +76,7 @@ class Player1326State
      */
     public function nextLost()
     {
-        return new Player1326NoWins($this->player);
+        return $this->stateFactory->get('Roulette\Player1326NoWins');
     }
 
 }

@@ -7,25 +7,13 @@ class Player1326OneWin extends Player1326State
 {
 
     /**
-     * Constructs a new Bet from the player’s preferred Outcome. 
-     * Each subclass has a different multiplier used when creating this Bet.
-     * 
-     * @return Bet
+     * Player State constructor
      */
-    public function currentBet()
+    public function __construct(Player1326 $player)
     {
-        $multiplier = 3;
-        return new Bet($this->player->getAmount() * $multiplier, $this->player->outcome);
-    }
-
-    /**
-     * Constructs the new Player1326State instance to be used when the bet was a winner.
-     * 
-     * @return Player1326State
-     */
-    public function nextWon()
-    {
-        return new Player1326TwoWins($this->player);
+        parent::__construct($player);
+        $this->multiplier = 3;
+        $this->nextStateWin = 'Roulette\Player1326TwoWins';
     }
 
 }

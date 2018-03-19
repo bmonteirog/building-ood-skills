@@ -17,6 +17,20 @@ class Player1326State
     protected $player;
 
     /**
+     * The State multiplier. 
+     * 
+     * @var int
+     */
+    protected $multiplier;
+
+    /**
+     * Next State Instance
+     * 
+     * @var string
+     */
+    protected $nextStateWin;
+
+    /**
      * Player1326State constructor
      * 
      * @param Player1326 $player
@@ -34,7 +48,7 @@ class Player1326State
      */
     public function currentBet()
     {
-        return new \Exception('NotImplemented');
+        return new Bet($this->player->getAmount() * $this->multiplier, $this->player->outcome);
     }
 
     /**
@@ -44,7 +58,7 @@ class Player1326State
      */
     public function nextWon()
     {
-        return new \Exception('NotImplemented');
+        return new $this->nextStateWin($this->player);
     }
 
     /**

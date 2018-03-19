@@ -47,5 +47,12 @@ class Passenger57 extends Player
   {
 
   }
-  
+
+  /**
+   * Restart player's vars
+   */
+  public function restartPlayer()
+  {
+    $this->setRoundsPlayed(0);
+  }
 }

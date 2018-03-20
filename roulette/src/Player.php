@@ -52,7 +52,10 @@ abstract class Player
      * 
      * @param Bin $winningBin
      */
-    abstract public function winners(Bin $winningBin);
+    public function winners(Bin $winningBin)
+    {
+
+    }
 
     /**
      * Construct Player class

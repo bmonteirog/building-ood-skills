@@ -39,16 +39,6 @@ class Passenger57 extends Player
   }
 
   /**
-   * The game will notify a player of each spin using this method.
-   * 
-   * @param Bin $winningBin
-   */
-  public function winners(Bin $winningBin)
-  {
-
-  }
-
-  /**
    * Restart player's vars
    */
   public function restartPlayer()

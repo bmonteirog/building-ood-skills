@@ -72,13 +72,4 @@ class MartingalePlayer extends Player
         $this->setRoundsPlayed(0);
     }
 
-    /**
-     * The game will notify a player of each spin using this method.
-     * 
-     * @param Bin $winningBin
-     */
-    public function winners(Bin $winningBin)
-    {
-
-    }
 }

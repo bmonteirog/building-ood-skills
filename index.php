@@ -3,7 +3,7 @@
 require __DIR__.'/vendor/autoload.php';
 
 use Roulette\Simulator;
-use Roulette\Player1326 as Player;
+use Roulette\PlayerCancellation as Player;
 use Roulette\Table;
 use Roulette\Wheel;
 use Roulette\Game;

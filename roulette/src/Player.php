@@ -97,7 +97,8 @@ abstract class Player
     public function isPlaying()
     {
         $notPlayedEnough = $this->roundsPlayed < $this->roundsToGo;
-        return $notPlayedEnough;
+        $hasEnoughStake = $this->stake > 0;
+        return $notPlayedEnough && $hasEnoughStake;
     }
 
     /**

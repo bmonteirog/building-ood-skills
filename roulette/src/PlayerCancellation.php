@@ -46,7 +46,8 @@ class PlayerCancellation extends Player
     {
         $notPlayedEnough = $this->roundsPlayed < $this->roundsToGo;
         $sequenceNotEmpty = count($this->sequence) > 1;
-        return $notPlayedEnough && $sequenceNotEmpty;
+        $hasEnoughStake = $this->stake > 0;
+        return $notPlayedEnough && $sequenceNotEmpty && $hasEnoughStake;
     }
 
     /**

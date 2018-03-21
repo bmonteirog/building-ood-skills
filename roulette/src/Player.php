@@ -40,22 +40,6 @@ abstract class Player
      * @var int
      */
     protected $roundsPlayed = 0;
-    
-
-    /**
-     * Updates the Table with the various bets.
-     */
-    abstract public function placeBets();
-
-    /**
-     * The game will notify a player of each spin using this method.
-     * 
-     * @param Bin $winningBin
-     */
-    public function winners(Bin $winningBin)
-    {
-
-    }
 
     /**
      * Construct Player class
@@ -65,7 +49,24 @@ abstract class Player
     public function __construct(Table $table)
     {     
         $this->table = $table;
-    }
+    }    
+
+    /**
+     * Updates the Table with the various bets.
+     */
+    abstract public function placeBets();
+
+    /**
+     * Restart player's vars
+     */
+    abstract public function restartPlayer();
+
+    /**
+     * The game will notify a player of each spin using this method.
+     * 
+     * @param Bin $winningBin
+     */
+    public function winners(Bin $winningBin){}
 
     /**
      * Notification from the Game that the Bet was a winner

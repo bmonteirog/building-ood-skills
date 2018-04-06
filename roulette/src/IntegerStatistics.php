@@ -26,6 +26,8 @@ class IntegerStatistics
     /**
      * Add a integer value to durations list
      * 
+     * @codeCoverageIgnore
+     * 
      * @param int $duration
      */
     public function addDuration(int $duration)
@@ -35,6 +37,8 @@ class IntegerStatistics
 
     /**
      * Add a integer value to maximas list
+     * 
+     * @codeCoverageIgnore
      * 
      * @param int $maxima
      */    
@@ -79,6 +83,8 @@ class IntegerStatistics
 
     /**
      * Print results
+     * 
+     * @codeCoverageIgnore
      */
     public function results()
     {

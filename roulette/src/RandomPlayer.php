@@ -53,6 +53,8 @@ class RandomPlayer extends Player
 
     /**
      * Restart player's vars
+     * 
+     * @codeCoverageIgnore
      */
     public function restartPlayer()
     {

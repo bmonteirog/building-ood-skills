@@ -9,7 +9,8 @@ use Roulette\{
   Bet,
   Table,
   Outcome,
-  Wheel
+  Wheel,
+  InvalidBetException
 };
 
 
@@ -34,4 +35,13 @@ final class TableTest extends TestCase
     $this->assertTrue($table->placeBet($bet2) > 0);
   }
   
+  public function testCanThrowExceptionOnInvalidBet()
+  {
+    $this->expectException(InvalidBetException::class);
+
+    $five = new Outcome('Five bet', 6);
+    $bet = new Bet(16000000000, $five);
+    $table = new Table(new Wheel());
+    $table->placeBet($bet);
+  }
 }

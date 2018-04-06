@@ -61,6 +61,8 @@ class PlayerCancellation extends Player
 
     /**
      * Restart player's vars
+     * 
+     * @codeCoverageIgnore
      */
     public function restartPlayer()
     {
@@ -75,13 +77,7 @@ class PlayerCancellation extends Player
     public function placeBets()
     {
         $firstValue = reset($this->sequence);
-        $lastValue = end($this->sequence);
-        if (($firstValue + $lastValue) > 1000) {
-            $break = 'point';
-        }
-        if (($firstValue + $lastValue) > 5000) {
-            $break = 'point';
-        }
+        $lastValue = end($this->sequence);        
         $bet = new Bet($firstValue + $lastValue, $this->outcome);
         $this->table->placeBet($bet);
     }

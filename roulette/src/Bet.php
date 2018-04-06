@@ -78,7 +78,7 @@ class Bet
     */
    public function representation()
    {
-     return "Bet({$this->amount}, {$this->outcome->getName()})";
+     return "Bet({$this->amountBet}, {$this->outcome->getName()})";
    }
    
    /**

@@ -26,6 +26,14 @@ final class OutcomeTest extends TestCase
     $this->assertTrue($outcome1->getHash() === $outcome2->getHash());
     $this->assertFalse($outcome1->getHash() === $outcome3->getHash());
   }
+
+  public function testCanGetOutcomeAsString()
+  {
+    $outcome = new Outcome('1-2 Split', 17);
+    $expected = "1-2 Split (17:1)";
+
+    $this->assertEquals($outcome, $expected);
+  }
   
   public function testWinAmount()
   {

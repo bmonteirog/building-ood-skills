@@ -58,6 +58,7 @@ abstract class Player
 
     /**
      * Restart player's vars
+     * 
      */
     abstract public function restartPlayer();
 
@@ -156,6 +157,8 @@ abstract class Player
     /**
      * Player rounds played setter
      *
+     * @codeCoverageIgnore
+     * 
      * @return int
      */
     public function setRoundsPlayed(int $roundsPlayed)

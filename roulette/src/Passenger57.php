@@ -40,6 +40,8 @@ class Passenger57 extends Player
 
   /**
    * Restart player's vars
+   * 
+   * @codeCoverageIgnore
    */
   public function restartPlayer()
   {

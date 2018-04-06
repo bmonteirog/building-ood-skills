@@ -61,6 +61,21 @@ final class WheelTest extends TestCase
     }
     
     $this->assertEquals($binCounter, $expectedNumberOfBins);
+  }
 
+  public function testCanFailOnInvalidBin()
+  {
+    $wheel = new Wheel();
+    $five = new Outcome('Five bet', 6);    
+    $outOfRangeBin = 50;
+
+    $this->assertFalse($wheel->addOutcome($outOfRangeBin, $five));
+  }
+
+  public function testCanGetNullFromEmptyBin()
+  {
+    $wheel = new Wheel();
+    
+    $this->assertNull($wheel->getOutcome('Five'));
   }
 }

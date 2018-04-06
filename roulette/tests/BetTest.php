@@ -25,6 +25,20 @@ final class BetTest extends TestCase
     $this->outcomes['zero'] = new Outcome('0', 35);
     $this->outcomes['zerozero'] = new Outcome('00', 35);
   }
+
+  public function testCanGetBetAsString()
+  {
+    $bet = new Bet(10, $this->outcomes['five']);
+    $expected = "10 on Five bet";
+    $this->assertEquals($bet, $expected);
+  }
+
+  public function testCanGetBetRepresentation()
+  {
+    $bet = new Bet(10, $this->outcomes['five']);
+    $expected = "Bet(10, Five bet)";
+    $this->assertEquals($bet->representation(), $expected);
+  }
   
   public function testCanGetWinAmount()
   {  

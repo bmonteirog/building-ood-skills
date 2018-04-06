@@ -13,7 +13,8 @@
     "require": {
         "phpunit/phpunit": "^6.5",
         "equip/structure": "^1.1",
-        "clickalicious/rng": "^3.0"
+        "clickalicious/rng": "^3.0",
+        "phpmd/phpmd": "^2.6"
     },
     "autoload": {
       "psr-4": {

@@ -14,7 +14,8 @@
         "phpunit/phpunit": "^6.5",
         "equip/structure": "^1.1",
         "clickalicious/rng": "^3.0",
-        "phpmd/phpmd": "^2.6"
+        "phpmd/phpmd": "^2.6",
+        "phpmetrics/phpmetrics": "^2.3"
     },
     "autoload": {
       "psr-4": {

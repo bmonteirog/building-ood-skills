@@ -26,7 +26,7 @@ class Bin extends ImmutableSet
    */
   public function hasOutcome(Outcome $otherOutcome)
   {
-    foreach ($this as $key => $outcome) {
+    foreach ($this as $outcome) {
       if ($outcome->equals($otherOutcome)) {
         return true;
       }
